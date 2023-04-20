@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Homework 1}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 231}
+\lfoot{Christopher Hunt}
+\lhead{Homework 1}
+\rhead{\thepage}
+\maketitle
+\section{Suppose $P(x)$ is some predicate for which the statement  $\forall x P(x)$ is true. Is it also the case that $\exists x P(x)$ is true? In other words, is the statement $\forall x P(x) \rightarrow \exists x P(x)$ always true? Is the converse always true? Assume the domain of discourse is non-empty.}
+
+\subsubsection*{Part 1}
+First we are to examine the statement $\forall x P(x) \rightarrow \exists x P(x)$. Since we are told that the antecedent is true we can conclude that there is some $x$ that would make P(x) true. In fact, every value of $x$ can act as evidence for the "True" truth value of the statement $\exists x P(x)$.
+
+\subsubsection*{Part 2}
+Next we are to examine the converse statement, $\exists x P(x) \rightarrow \forall x P(x)$. Suppose that the antecedent is true, the fact that there exists one or more values of $x$ that satisfy $P(x)$ does not provide enough evidence that all values of $x$ will satisfy $P(x)$. For example, let the domain of discourse be "t-shirts at a thrift store" where x is a t-shirt at the thrift store, and P(x) is the predicate "x is blue." Now, we may find one (or many) blue t-shirts at the store but, from the information provided, we cannot conclude that every t-shirt is blue simply because one (or many) have been found. 
+
+\section{Consider the statement, “For all natural numbers $n$, if $n$ is prime, then $n$ is solitary.” You do not need to know what solitary means for this problem, just that it is a property that some numbers have and others do not.}
+
+Let:
+$$P(n) = "n \text{ is prime}" \qquad Q(n) = "n \text{ is solitary}"$$
+The statement can be rewritten as:
+$$\forall n \in \mathbb{N} (P(n) \rightarrow Q(n))$$
+
+\subsection*{b. Write the negation of the original statement. What would you need to show to prove that the statement is false?}
+The negation of an implication is equivalent to the statement P and not Q.
+$$\neg(P\rightarrow Q) \equiv  P \wedge \neg Q$$
+The negation of the original statement can thus be written as: "There exists a natural number $n$ such that $n$ is prime and $n$ is not solitary". 
+$$\exists n \in \mathbb{N} : (P(n) \wedge \neg Q(n))$$
+To prove that the original statement is false, you would need to find at least one natural number $n$ that satisfies the negation – an $n$ that is both prime and not solitary. If such an $n$ exists, it would contradict the original statement, proving it to be false.
+
+
+
+
+\end{document}
+

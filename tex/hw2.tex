@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{csquotes}
+
+\title{Homework 2}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 231}
+\lfoot{Christopher Hunt}
+\lhead{Homework 2}
+\rhead{\thepage}
+\maketitle
+ \section*{5. Geoff Poshingten is out at a fancy pizza joint, and decides to order a calzone. When the waiter asks what he would like in it, he replies, \enquote{I want either pepperoni or sausage. Also, if I have sausage, then I must also include quail. Oh, and if I have pepperoni or quail then I must also have ricotta cheese.}}
+\subsection*{a. Translate Geoff's order into logical symbols}
+Geoff's order consists of three molecular statements made up from four atomic propositions.
+\\
+\\
+Let:
+$$P = \text{\enquote{Geoff wants pepperoni.}} \quad S = \text{\enquote{Geoff wants sausage.}} $$
+$$Q = \text{\enquote{Geoff wants quail.}} \quad R = \text{\enquote{Geoff wants ricotta cheese.}}$$
+Statement one, \enquote{I want either pepperoni or sausage.}:
+$$P \vee S$$
+Statement two, \enquote{Also, if I have sausage, then I must also include quail.}:
+$$S \rightarrow Q$$
+Statement three, \enquote{Oh, and if I have pepperoni or quail then I must also have ricotta cheese.}
+$$(P\vee Q) \rightarrow R$$
+
+\subsection*{b. The waiter knows that Geoff is either a liar or a truth-teller (so either everything he says is false, or everything is true). Which is it?}
+Begin by making a truth table for the complete statement.
+\[
+\begin{tabular}{c|c|c|c|c|c|c|c}
+P & Q & S & R & P $\lor$ S & S $\rightarrow$ Q & P $\lor$ Q & (P $\lor$ Q) $\rightarrow$ R \\ \hline
+T & T & T & T & T & T & T & T\\
+T & T & T & F & T & T & T & F\\
+T & T & F & T & T & T & T & T\\
+T & T & F & F & T & T & T & F\\
+T & F & T & T & T & F & T & T\\
+T & F & T & F & T & F & T & F\\
+T & F & F & T & T & T & T & T\\
+T & F & F & F & T & T & T & F\\
+F & T & T & T & T & T & T & T\\
+F & T & T & F & T & T & T & F\\
+F & T & F & T & F & T & T & T\\
+F & T & F & F & F & T & T & F\\
+F & F & T & T & T & F & F & T\\
+F & F & T & F & T & F & F & T\\
+F & F & F & T & F & T & F & T\\
+F & F & F & F & F & T & F & T\\
+\end{tabular}
+\]
+Taking a look at this truth table, we see that there is no scenario where all statements would be false simultaneously, while there are several scenarios where each statement is true. Geoff is therefore a truth teller.
+
+\subsection*{c. What, if anything, can the waiter conclude about the ingredients in Geoff's desired calzone?}
+Since we know that Geoff's order requires each statement to be true, then we find the ingredient that is true in each scenario where all three statements are true. When inspecting the truth table we find that ricotta cheese is that ingredient. The waiter can conclude that the calzone will definitely have ricotta cheese.
+
+
+\newpage
+\section*{11. Tommy Flanagan was telling you what he ate yesterday afternoon. He tells you, \enquote{I had either popcorn or raisins. Also, if I had cucumber sandwiches, then I had soda. But I didn't drink soda or tea.} Of course you know that Tommy is the worlds worst liar, and everything he says is false. What did Tommy eat?}
+Begin by converting Tommy's statement into symbols.
+\\
+\\
+Let:
+$$P = \text{\enquote{Tommy had popcorn}} \quad Q = \text{\enquote{Tommy had cucumber sandwiches}}$$
+$$R = \text{\enquote{Tommy had raisins}} \quad S = \text{\enquote{Tommy drank soda}} \quad T = \text{\enquote{Tommy drank tea}}$$
+Statement one, \enquote{I had either popcorn or raisins}:
+$$P \vee R$$
+Statement two, \enquote{Also, if I had cucumber sandwiches, then I had soda.}:
+$$Q \rightarrow S$$
+Statement three, \enquote{But I didn’t drink soda or tea}
+$$\neg (S\vee T)$$
+Since Tommy is a known liar, we need to negate each of his statements and from that perhaps we can find out what he ate.
+\\
+\\
+Statement one:
+$$\neg (P \vee R) = \neg P \wedge \neg R \qquad \text{By de Morgan's Law}$$
+Statement two:
+$$\neg (Q \rightarrow S) = Q \wedge \neg S$$
+$$\text{A implication is only false when the antecedent is true and the consequent is false.}$$
+\\
+\\
+Statement three:
+$$\neg \neg(S \vee T) = S \vee T \qquad \text{By double negation}$$
+\\
+\\
+By inspecting these negations we can see that Tommy did not have popcorn or raisins. He had cucumber sandwiches and not soda. And he had soda or tea. Therefore, Tommy had cucumber sandwiches and tea.
+\newpage
+\section*{SQ-1. The notation $\exists !$ means \enquote{there exists a unique.} For example, \enquote{$\exists !$ x such that x is prime and x is even} means that there is one and only one even prime number. Suppose that P(x) is a predicate and D is the domain of discourse for x.}
+\subsection*{a. Rewrite the statement \enquote{ $\exists ! x \in D:P(x)$} without using the symbol $\exists !$.}
+Let:
+$$Q(x,y) = \text{y is x}$$
+The statement \enquote{ $\exists ! x \in D:P(x)$} can be rewritten as:
+$$\text{There exists some x in D such that P(x), and, for all y in D such that if P(y), then y is x.}$$
+$$\exists x \in D : (P(x) \wedge (\forall y \in D : (P(y) \rightarrow Q(x,y)))) $$
+\subsection*{b. Write (and simplify) a negation of the statement \enquote{ $\exists ! x \in D:P(x)$.} What does it mean in words?}
+
+The negation of the statement above is:
+$$\text{For all x in D such that not P(x), or, there exists some y in D such that, P(y) and y is not x}$$
+Symbolically this can be done using de Morgan's Law:
+$$\neg (\exists x \in D : (P(x) \wedge (\forall y \in D : (P(y) \rightarrow (y = x))))) \equiv \; \forall x \in D : (\neg P(x) \vee (\exists y \in D : (P(y) \wedge \neg Q(x,y))))$$
+\end{document}
