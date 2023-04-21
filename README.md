@@ -5,19 +5,12 @@ This repository contains homework, labs, data, and other resources for the MTH23
 ## Table of Contents
 
 - [Homework](#homework)
-- [Labs](#labs)
-- [Data](#data)
+- [Daily Prep](#dailyprep)
 - [Resources](#resources)
 
 ## Homework
 
-
-
-## Labs
-
-
-## Data
-
+## Daily Prep
 
 ## Resources
 
