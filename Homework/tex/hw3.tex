@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb}
+\title{Homework 3}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+\newtheorem*{claim}{Claim}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{myproof}{Proof}
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 231}
+\lfoot{Christopher Hunt}
+\lhead{Homework 3}
+\rhead{\thepage}
+\maketitle
+\section*{7. Consider the statement: for all integers $a$ and $b$, if $a$ is even and $b$ is a multiple of 3, then $ab$ is a multiple of 6.}
+Let us begin by defining our terms.
+\begin{align*}
+    &\text{Let: } a,b,n,m\in\mathbb{Z} \\
+    &P = a = 2n \quad \text{(by the definition of even numbers from class)} \\
+    &Q = 3|b=m \text{ or } b=3m \\
+    &R = 6|ab=nm \text{ or } ab = 6(nm)
+\end{align*}
+\subsection*{a. Prove the statement. What sort of proof are you using?}
+This claim will be proven using a Direct Proof.
+\begin{claim}
+For all integers $a$ and $b$, if $P$ and $Q$ are true, then $R$ is true. That is, $\forall a, b \in \mathbb{Z} (P \wedge Q \rightarrow R)$.
+\end{claim}
+
+\begin{myproof}
+Suppose $P$ and $Q$ are true. Consider the product of $a$ and $b$:
+\begin{align*}
+    ab &= (2n)(3m) \\
+       &= 6(nm)
+\end{align*}
+Since $a$, $b$, $n$, and $m$ are all integers, and integers are closed under multiplication, we can conclude that the product of $ab$ is divisible by $6$. Therefore, the claim is true. \\
+\qed
+\end{myproof}
+
+
+\subsection*{b. State the converse. Is it true? Prove or disprove.}
+Now consider the converse claim.
+\begin{claim}
+For all integers $a$ and $b$, if $R$ is true, then $P$ and $Q$ are true. That is, $\forall a, b \in \mathbb{Z} (R \rightarrow P \wedge Q)$.
+\end{claim}
+
+\begin{myproof}
+Suppose $R$ is true. For the statement to be true $a$ must be even and $b$ a multiple of 3. To disprove this claim we need to show that there exists a product of $a$ and $b$ that is a multiple of 6 where either $a$ is not even or $b$ is not a multiple of 3. Consider this counterexample:
+$$\text{Let: } a = 6 \text{ and } b = 2 $$
+\begin{align*}
+       ab &= 6(2) \\
+       &= 12 \\
+\end{align*}
+Since the product of $a$ and $b$ is a multiple of 6, and $b$ is not a multiple of 3 there exists a case where the statement $R$ is true but the implication $P \wedge Q$ is false. Therefore, the converse claim is false. \\
+\qed
+\end{myproof}
+
+\newpage
+
+\section*{9. Prove the statement: For all integers $a$, $b$, and $c$, if $a^2+b^2=c^2$, then $a$ or $b$ is even.}
+To begin this proof we must first prove this lemma.
+\begin{lemma}
+    If $n$ is an odd integer, then $n^2$ is an odd integer. Let $n = 2k+1$ where $k$ is some integer.
+    \begin{align*}
+        n^2 &= (2k+1)^2 \\
+        &= (2k+1)(2k+1) \\ 
+        &= 4k^2+4k+1 \\
+        &= 2(2k^2+2k)+1
+    \end{align*}
+    Since $k$ is an integer and integers are closed under multiplication $n^2$ is odd. Therefore, the statement is true.
+\end{lemma}
+\begin{claim}
+    For all integers $a$, $b$, and $c$, if $a^2+b^2=c^2$, then $a$ or $b$ is even. That is, $\forall a,b,c \in \mathbb{Z}$ such that $(a^2+b^2=c^2 \rightarrow a \text{ or } b \text{ is even})$
+\end{claim}
+
+\begin{myproof}
+    Let us begin by finding the contradiction to the claim.
+    $$ \text{Contradiction: }\exists a,b,c, \in \mathbb{Z} \text{ such that } (a^2+b^2=c^2 \text{ and } a \text{ and } b \text{ are odd.)}$$
+    To disprove this claim we need to find a case where this contradiction is true. Suppose $a$ and $b$ are odd, that is $a = 2k+1$ and $b = 2j+1$ where $k$ and $j$ are some integer. Now consider $c^2 = a^2+b^2$
+    \begin{align*}
+        c^2 &= a^2+b^2 \\
+        &= (2k+1)^2+(2j+1)^2 \\
+        &= 4k^2+4k+1+4j^2+4j+1 \\
+        &= 2(2k^2+2k+2j^2+2j+1) \\
+    \end{align*}
+    Since $k$ and $j$ are integers, and integers are closed under multiplication, this would mean that when $a$ and $b$ are some odd integer $c^2$ will always be an even. From lemma 1 we know that it's contra-positive is also true, that is if $n^2$ is an even integer, then $n$ is an even intege. From the definition of an even integer we can rewrite $c$ as $c = 2p$ where $p$ is some integer. Now continue our work from above:
+    \begin{align*}
+        c^2 &= (2p)^2 \\
+        (2p)^2 &= 2(2k^2+2k+2j^2+2j+1) \\
+        4p^2 &= 2(2k^2+2k+2j^2+2j+1) \\ 
+        2p^2 &= 2k^2+2k+2j^2+2j+1 \\
+        2(p^2) &\neq 2(k^2+k+j^2+j) + 1
+    \end{align*}
+    Since we proved in class that integers must be either odd or even the above equality is a contradiction for all cases of odd integers $a$ and $b$. Therefore, the original statement must be true.\\
+    \qed
+\end{myproof}
+\newpage
+\section*{SQ-2. Use the definitions of even and odd integers to prove the following claim: “If $k$ is any odd integer and $m$ is any even integer, then $k^2+m^2$ is odd.” }
+Let us begin by defining our terms.
+\begin{align*}
+    &\text{Let: } k,m,a,b\in\mathbb{Z} \\
+    &P = k = 2a+1 \\
+    &Q = m = 2b \\
+    &R = \text{ "$k^2+m^2$ is odd"} \\
+\end{align*}
+\begin{claim}
+    If $k$ is any odd integer and $m$ is any even integer, then $k^2+m^2$ is odd, that is $\forall k,m \in \mathbb{Z} \text{ such that } (P \wedge Q \rightarrow R)$.
+\end{claim}
+\begin{myproof}
+    Suppose $P$ and $Q$ are both true. Consider $k^2+m^2$:
+    \begin{align*}
+        k^2 + m^2 &= (2a+1)^2+(2b)^2 \\
+        &= 4a^2+4a+1+4b^2 \\
+        &= 2(2a^2+2a+2b^2)+1 \\
+    \end{align*}
+    Since $a$ and $b$ are integers and integers are closed under multiplication we can conclude that $k^2 + m^2$ will always be an odd number. Therefore the claim is true. \\ 
+    \qed
+\end{myproof}
+\end{document}
