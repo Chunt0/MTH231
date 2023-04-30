@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb}
+
+\newtheorem*{claim}{Claim}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{poof}{Proof}
+
+\title{HW 4}
+\author{Christopher Hunt}
+\date{}
+
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{MTH 231}
+\lfoot{Christopher Hunt}
+\lhead{HW 4}
+\rhead{\thepage}
+
+\maketitle
+
+\section*{17. Give a proof of the statement, “for all $n\in \mathbb{N}$, the number $n^2+n$ is even.”}
+Let P(n) be "$n^2 + n$ is even".
+\begin{claim}
+    $\forall n \in \mathbb{N}$, P($n$)
+\end{claim}
+\begin{poof}
+    Suppose  $n=1$, P($1$) can be written as:
+    \begin{align*}
+        1^2+1\\
+        1+1\\
+        2
+    \end{align*}
+    Since 2 is an even number, by the definition of even numbers, P(1) is true.\\
+    
+    \noindent Now let us assume, for some natural number $k$, P($k$) is true.
+    Now consider P($k+1$):
+    \begin{align*}
+        (k+1)^2+&k+1\\
+        k^2+2k+1+&k+1\\
+        (k^2+k)+&2k+2\\
+        (k^2+k)+&2(k+1)
+    \end{align*}
+    Since we know that $k^2+k$ and $2(k+1)$ are both even and the sum of two even numbers is even, P($k+1$) will be even.
+    Therefore by the principle of mathematical induction all natural numbers, $n$, the number $n^2+n$ is even.
+    \\
+    \qed
+\end{poof}
+\newpage
+\section*{22. Suppose that a particular real number 
+ has the property that $x+\frac{1}{x}$ is an integer. Prove that $x^n+\frac{1}{x^n}$ is an integer for all natural numbers.}
+
+\begin{claim}
+     $x^n+\frac{1}{x^n}$ is an integer for all natural numbers.
+     $$\forall n \in \mathbb{N}, x^n +\frac{1}{x^n}\text{ \emph{is an integer}}$$
+\end{claim}
+\begin{poof}
+     Let's begin by considering the base case where n = 1.
+    \begin{align*}
+         x^1+&\frac{1}{x^1}\\         x+&\frac{1}{x}
+    \end{align*}
+    Since $x+\frac{1}{x}$ is assumed to be an integer we can state that the claim where n=1, is true.
+    \\
+    
+    \noindent Now let us assume for all integers from 0 to k the claim holds true. Since we know that integers have closure under multiplication if we multiplied the integer $x^k+\frac{1}{x^k}$ by $x+\frac{1}{x}$ the product will be an integer, consider the expansion of this product equals some integer j.
+    \begin{align*}
+        (x^k+\frac{1}{x^k})(x+\frac{1}{x})=&\,j\\
+        x^kx+\frac{x^k}{x}+\frac{x}{x^k}+\frac{1}{x^kx}=&\,j\\
+        x^{k+1}+\frac{1}{x^{k+1}}+x^{k-1}+\frac{1}{x^{k-1}}=&\,j\\
+    \end{align*}
+    Since we are assuming that the claim holds for all values up to k, it will then hold true for $k-1$. We can replace $x^{k-1}+\frac{1}{x^{k-1}}$ for some integer $m$
+    \begin{align*}
+        x^{k+1}+\frac{1}{x^{k+1}}+x^{k-1}+\frac{1}{x^{k-1}}=&\,j\\
+        x^{k+1}+\frac{1}{x^{k+1}}+m=&\,j
+    \end{align*}
+    Since we know that both j and m are integers and integers are closed under addition the sum of $x^{k+1}+\frac{1}{x^{k+1}}$ must also be an integer. Therefore by strong induction, the claim is true.
+    \\
+    \qed
+\end{poof}
+
+\newpage
+\section*{SQ-3. Claim: $\forall n \in \mathbb{N} \text{ such that }F_n < 2^n$. Prove this using induction.}
+To prove this first we must prove this lemma:
+\begin{lemma}
+    \begin{claim}
+        All values, are natural numbers. If some $x$ less than some $n$ and some $y$ is less than some $m$, the sum of $x$ and $y$ will be less than the sum of $n$ and $m$.
+    \end{claim}
+    \begin{poof}
+        Let us assume $x$ is less than $n$ and $y$ is less than $m$. This means that there are some positive integer $j$ and $k$ such that $x+j=n$ and $y+k=m$. We can write this equality:
+        \begin{align*}
+            x+y =& n+m-(j+k)
+        \end{align*}
+        Since both $j$ and $k$ are positive integers, the sum of $n$ and $m$ will have the value $j+k$ subtracted from it meaning it will be smaller. Therefore, the claim is true.\\
+        \qed
+    \end{poof}
+\end{lemma}
+Let's begin our proof by defining the Fibonacci Sequence as follows:
+$$\text{Fibonacci Sequence: }F_n+F_{n+1}=F_{n+2}\qquad F_0 = 0 \text{ ad }F_1=1 \qquad 0,1,1,2,3,5...$$
+\begin{claim}
+    For all natural numbers n, $F_n < 2^n$
+\end{claim}
+\begin{poof}
+    Consider the two base cases where n = 0 and n = 1:
+    \begin{align*}
+        F_0<\,2^0 \text{ and }& F_1<\,2^1\\
+        0<\,1\text{ and }&1<\,2
+    \end{align*}
+    Zero is less then one and one is less than two the claim holds true for n = 0 and n = 1.
+    \\
+    \noindent Now assume that the claim holds true for all values from 0 to k. I want to show that the claim will hold true for n=k+1
+    \begin{align*}
+        F_{k+1}<&\,2^{k+1}\\
+        F_{k+1}<&\,2^{k}2^1\\
+        F_{k+1}<&\,2^{k+1}2\\
+        F_{k+1}<&\,2^{k}+2^{k}\\
+    \end{align*}
+    By the definition of the Fibonacci Sequence the $F_{k+1}$ value in the sequence will be equal to the sum of the previous two values, $F_{k+1}=F_k+F_{k-1}$. Since we are assuming that $F_k$ and $F_{k-1}$ are both smaller than $2^k$, then their sum will be smaller than the sum of $2_k+2_k$ by lemma 1. This means that $F_{k+1}$ is smaller than $2^k+2^k$. Therefore, by strong induction the claim is true.\\
+    \qed
+\end{poof}
+
+\end{document}
