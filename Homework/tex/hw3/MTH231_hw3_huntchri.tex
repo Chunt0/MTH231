@@ -23,9 +23,9 @@
 Let us begin by defining our terms.
 \begin{align*}
     &\text{Let: } a,b,n,m\in\mathbb{Z} \\
-    &P = a = 2n \quad \text{(by the definition of even numbers from class)} \\
-    &Q = 3|b=m \text{ or } b=3m \\
-    &R = 6|ab=nm \text{ or } ab = 6(nm)
+    &P(a,n) = "a = 2n" \quad \text{(by the definition of even numbers from class)} \\
+    &Q(b,m) = "3|b=m" \text{ or } "b=3m" \\
+    &R(a,b,n,m)= "6|ab=nm" \text{ or } "ab = 6(nm)"
 \end{align*}
 \subsection*{a. Prove the statement. What sort of proof are you using?}
 This claim will be proven using a Direct Proof.
@@ -76,7 +76,7 @@ To begin this proof we must first prove this lemma.
     Since $k$ is an integer and integers are closed under multiplication $n^2$ is odd. Therefore, the statement is true.
 \end{lemma}
 \begin{claim}
-    For all integers $a$, $b$, and $c$, if $a^2+b^2=c^2$, then $a$ or $b$ is even. That is, $\forall a,b,c \in \mathbb{Z}$ such that $(a^2+b^2=c^2 \rightarrow a \text{ or } b \text{ is even})$
+    For all integers $a$, $b$, and $c$, if $a^2+b^2=c^2$, then $a$ or $b$ is even. That is, $\forall a,b,c \in \mathbb{Z}(a^2+b^2=c^2 \rightarrow a \text{ or } b \text{ is even})$
 \end{claim}
 
 \begin{myproof}
@@ -89,13 +89,16 @@ To begin this proof we must first prove this lemma.
         &= 4k^2+4k+1+4j^2+4j+1 \\
         &= 2(2k^2+2k+2j^2+2j+1) \\
     \end{align*}
-    Since $k$ and $j$ are integers, and integers are closed under multiplication, this would mean that when $a$ and $b$ are some odd integer $c^2$ will always be an even. From lemma 1 we know that it's contra-positive is also true, that is if $n^2$ is an even integer, then $n$ is an even intege. From the definition of an even integer we can rewrite $c$ as $c = 2p$ where $p$ is some integer. Now continue our work from above:
+    Since $k$ and $j$ are integers, and integers are closed under multiplication, this would mean that when $a$ and $b$ are some odd integer $c^2$ will always be an even. From lemma 1 we know that it's contra-positive is also true, that is if $n^2$ is an even integer, then $n$ is an even intege. From the definition of an even integer we can rewrite $c$ as $c = 2p$ where $p$ is some integer. So, $c^2 = (2p)^2$. Now continue our work from above:
     \begin{align*}
         c^2 &= (2p)^2 \\
-        (2p)^2 &= 2(2k^2+2k+2j^2+2j+1) \\
-        4p^2 &= 2(2k^2+2k+2j^2+2j+1) \\ 
-        2p^2 &= 2k^2+2k+2j^2+2j+1 \\
-        2(p^2) &\neq 2(k^2+k+j^2+j) + 1
+        &= 4p^2
+    \end{align*}
+    Since $c^2$ is equal to $4p^2$ we can substitute that in for $c^2$ in the above equation.
+    \begin{align*}
+        4p^2&= 2(2k^2+2k+2j^2+2j+1) \;\;\text{Divide both sides by two.} \\
+        2p^2 &= 2k^2+2k+2j^2+2j+1 \;\;\text{Pull out a two from the right side of the equation.}\\
+        2p^2&\not= 2(k^2+k+j^2+j)+1 \;\;\text{The left side is even and the right side is odd}
     \end{align*}
     Since we proved in class that integers must be either odd or even the above equality is a contradiction for all cases of odd integers $a$ and $b$. Therefore, the original statement must be true.\\
     \qed
@@ -104,16 +107,16 @@ To begin this proof we must first prove this lemma.
 \section*{SQ-2. Use the definitions of even and odd integers to prove the following claim: “If $k$ is any odd integer and $m$ is any even integer, then $k^2+m^2$ is odd.” }
 Let us begin by defining our terms.
 \begin{align*}
-    &\text{Let: } k,m,a,b\in\mathbb{Z} \\
-    &P = k = 2a+1 \\
-    &Q = m = 2b \\
-    &R = \text{ "$k^2+m^2$ is odd"} \\
+    &\text{Let: } k,m\in\mathbb{Z} \\
+    &P(k) = \text{ "k is any odd integer"} \\
+    &Q(m) = \text{ "m is any even integer"} \\
+    &R(k,m) = \text{ "$k^2 + m^2$ is odd"} \\
 \end{align*}
 \begin{claim}
-    If $k$ is any odd integer and $m$ is any even integer, then $k^2+m^2$ is odd, that is $\forall k,m \in \mathbb{Z} \text{ such that } (P \wedge Q \rightarrow R)$.
+    If $k$ is any odd integer and $m$ is any even integer, then $k^2+m^2$ is odd, that is $\forall k,m \in \mathbb{Z} (P \wedge Q \rightarrow R)$.
 \end{claim}
 \begin{myproof}
-    Suppose $P$ and $Q$ are both true. Consider $k^2+m^2$:
+    Suppose $P$ and $Q$ are both true. By the definition of odd integers there must be some integer $a$ such that $k=2a+1$ and by the definition of even integers there must be some integer $b$ such that $m=2b$. Consider $k^2+m^2$:
     \begin{align*}
         k^2 + m^2 &= (2a+1)^2+(2b)^2 \\
         &= 4a^2+4a+1+4b^2 \\
