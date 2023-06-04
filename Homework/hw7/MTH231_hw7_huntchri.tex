@@ -30,7 +30,7 @@
 \end{claim}
 \begin{poof}
     Concider a graph $G$ where this is not the case. $G$ is a graph that contains $n > 1$ vertices where every vertex has a unique number of degrees. The set of degrees of each vertex would be:
-    \[\{0,1,2,3,...,n-2,n-1\}\]
+    \[\{0,1,2,3,\ldots,n-2,n-1\}\]
     The range of degree values is from $0$ to $n-1$. No vertex can have less than zero degrees and no vertex can have more degrees than there are other vertices besides the vertex being examined. This means that there are $n$ amount of possible unique degree values, therefore each vertex must have a degree from within this range. Examining this scenario we find that this graph must contain a vertex that is not connected to any other vertex (degree $0$) while also having a vertex connected to every other vertex in the graph (degree $n-1$), which includes the vertex of degree 0. This is a contradiction. Therefore, by contradiction, the claim is proved to be true.\\
     \qed\end{poof}
 
