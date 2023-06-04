@@ -35,6 +35,19 @@
     \qed\end{poof}
 
 \newpage
+
+\section*{SQ-11. Suppose $G$ is a connected graph and $T$ is a cycle-free subgraph of $G$. Suppose also that if any edge $e$ of $G$ that is not in $T$ is added to $T$, the resulting graph contains a cycle. Prove that $T$ is a spanning tree for $G$}
+\begin{claim}
+    $T$ is a spanning tree for $G$
+\end{claim}
+\begin{poof}
+    First, we will show that T is a tree. Since T is a cycle-free subgraph of G, it is by definition acyclic. Now we need to prove that T is connected. Suppose T is not connected, which means there are two sets of vertices in T that are not adjacent to each other. Let's call these sets A and B. Since G is a connected graph, there exists at least one edge (u, v) in G that connects a vertex in set A to a vertex in set B. Adding this edge to T would create a cycle, contradicting the given condition that any edge not in T would create a cycle. Therefore, T must be connected, and hence a tree.
+
+    Next, we will show that T spans all the vertices of G. Since T is a subgraph of G, it contains a subset of vertices from G. To prove that T spans all the vertices of G, we need to show that every vertex in G is also a vertex in T. Suppose there exists a vertex v in G that is not in T. Since G is a connected graph, there exists a path in G from any vertex u in T to vertex v. Along this path, there must be an edge e that is not in T. However, adding this edge e to T would create a cycle, which contradicts the given condition. Therefore, every vertex in G is also a vertex in T, and T spans all the vertices of G.
+    
+    Based on the above arguments, we have shown that T is a connected, acyclic subgraph of G that spans all the vertices of G. Therefore, T is a spanning tree for G.\\
+\qed\end{poof}
+\newpage
 \section*{7.The two problems below can be solved using graph coloring. For each problem, represent the situation with a graph, say whether you should be coloring vertices or edges and why, and use the coloring to solve the problem.}
 For this problem I will color the edges. Each color of edge represents a day a match is played.
 
